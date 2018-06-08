@@ -7,6 +7,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 // componentes pagina deseados
 import { PendientesComponent } from '../pages/pendientes/pendientes.component';
 import { TerminadosComponent } from '../pages/terminados/terminados.component';
+import { AgregarComponent } from '../pages/agregar/agregar.component';
+
+// Servicios
+import { ListaDeseosService } from '../app/services/lista-deseos.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     TabsPage,
     PendientesComponent,
-    TerminadosComponent
+    TerminadosComponent,
+    AgregarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,11 +32,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     TabsPage,
     PendientesComponent,
-    TerminadosComponent
+    TerminadosComponent,
+    AgregarComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ListaDeseosService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
