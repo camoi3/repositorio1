@@ -8,20 +8,36 @@ export class ListaDeseosService {
 
     constructor() {
 
-        let lista1 = new Lista('Compras de supermercado');
-        let lista2 = new Lista('Juegos que deseo');
-        let lista3 = new Lista('Cosas de la universidad');
+        // let lista1 = new Lista('Compras de supermercado');
+        // let lista2 = new Lista('Juegos que deseo');
+        // let lista3 = new Lista('Cosas de la universidad');
 
-        this.listas.push( lista1 );
-        this.listas.push( lista2 );
-        this.listas.push( lista3 );
+        // this.listas.push( lista1 );
+        // this.listas.push( lista2 );
+        // this.listas.push( lista3 );
+        this.cargarData();
 
         console.log ("Servicio listo para ser usado!!!");
-        console.log (this.listas);
     }
 
-    // getListas():Lista[]{
-    //     return this.listas
-    // }
+        actualizarData(){
+            localStorage.setItem ( "data", JSON.stringify(this.listas) );
+        }
+
+        cargarData(){
+            if (localStorage.getItem( "data" )){
+            this.listas = JSON.parse( localStorage.getItem( "data" ));
+            }
+        }
+
+        agregarListas( lista:Lista ){
+            this.listas.push(lista);
+            this.actualizarData();
+        }
+
+        eliminarListas( idx:number ){
+            this.listas.splice(idx,1);
+            this.actualizarData();
+        }
 
 }

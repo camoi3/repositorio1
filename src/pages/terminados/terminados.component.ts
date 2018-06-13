@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { ListaDeseosService } from '../../app/services/lista-deseos.service';
+
+import { NavController } from 'ionic-angular';
+import { DetalleComponent } from '../detalle/detalle.component';
+
 
 @Component({
   selector: 'app-terminados',
@@ -6,8 +11,13 @@ import { Component } from '@angular/core';
 })
 export class TerminadosComponent {
 
-  constructor() {
+  constructor( public _listaDeseos: ListaDeseosService,
+    private navCtrl: NavController ) {
 
-  }
+}
+
+verDetalle( lista, idx ){
+this.navCtrl.push( DetalleComponent, { lista, idx } )
+}
 
 }
